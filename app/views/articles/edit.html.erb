@@ -1,0 +1,19 @@
+<%= form_for @article do |c| %>
+<%= c.label :title %>
+<%= c.text_field :title %>
+<br/>
+<%= c.label :content %>
+<%= c.text_area :content, cols: 20, rows: 10 %>
+<br/>
+<%= c.label :status %>
+<%= c.radio_button :status, "active" %>
+<%= label :article_status, 'active' %>
+<%= c.radio_button :status, "off" %>
+<%= label :article_status, 'off' %>
+<br/>
+<%= c.submit :submit %>
+<% end %>
+
+<div>
+	<%= link_to "back to index", articles_path %>
+</div>

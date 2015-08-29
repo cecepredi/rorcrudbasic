@@ -1,0 +1,17 @@
+<%= form_for @article do |g| %>
+<%= g.label :title %>
+<%= g.text_field :title %>
+<%= @article.errors[:title].first unless @article.errors[:title].blank? %>
+<br/>
+<%= g.label :content %>
+<%= g.text_area :content, cols: 20, rows: 10 %>
+<%= @article.errors[:content].first unless @article.errors[:content].blank? %>
+<br/>
+<%= g.label :status %>
+<%= g.radio_button :status, "active" %>
+<%= label :article_status, 'active' %>
+<%= g.radio_button :status, "off", :checked => true %>
+<%= label :article_status, 'off' %>
+<br/>
+<%= g.submit :submit %>
+<% end %>
