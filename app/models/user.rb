@@ -1,6 +1,12 @@
 class User < ActiveRecord::Base
 	attr_accessor :password
 	before_save :add_salt_and_hash
+	before_create :add_activation_token
+  
+  	def add_activation_token
+    	self.activation_token = SecureRandom.urlsafe_base64
+    	self.activation_status = "not activated"
+  	end
 
 	include Humanizer
 	require_human_on :create
